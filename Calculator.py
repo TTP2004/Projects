@@ -9,12 +9,13 @@ def multiply(x, y):
     return x * y
 def divide(x, y):
     return x / y
-
+previous_answers = []
+num3 = 0
 while True:
 #menu to decide what operation to perform
     print("Select operation.")
-    selection = input('1: addition\n2: subtraction\n3: multiplication\n4: division\n5: to quit\n')
-    while selection != '5':
+    selection = input('1: addition\n2: subtraction\n3: multiplication\n4: division\n5: display previous answers\n6: to quit\n')
+    while selection != '6':
         if selection in ('1', '2', '3', '4'):
             try:
                 num1 = float(input('Enter first number: '))
@@ -23,15 +24,24 @@ while True:
                 print('Invalid input. Enter a valid number ')
                 continue
             if selection == '1':
-                print(num1 + num2)
+                num3 = num1 + num2
+                previous_answers.append(num3)
+                print(num3)
             elif selection == '2':
-                print(num1 - num2)
+                num3 = num1 - num2
+                previous_answers.append(num3)
+                print(num3)
             elif selection == '3':
-                print(num1 * num2)
+                num3 = num1 * num2
+                previous_answers.append(num3)
+                print(num3)
             elif selection == '4':
-                print(num1 / num2)
-
-        selection = input('1: addition\n2: subtraction\n3: multiplication\n4: division\n5: to quit\n')
+                num3 = num1 / num2
+                previous_answers.append(num3)
+                print(num3)
+        selection = input('1: addition\n2: subtraction\n3: multiplication\n4: division\n5: display previous answers\n6: to quit\n')
+        if selection == '5':
+            print(previous_answers)
     else:
         break
 
